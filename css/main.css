@@ -1,0 +1,110 @@
+@import "colors.css";
+@import "buttons_and_shadows.css";
+@import "typography.css";
+@import "component.css";
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: var(--gray_light2);
+}
+
+.w-70 {
+  width: 70%;
+}
+.container {
+  width: 70%;
+  display: flex;
+  height: 80vh;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.sidebar {
+  width: 30%;
+  display: flex;
+  background-color: var(--black);
+  color: rgb(236, 236, 236);
+}
+
+.sidebar-small {
+  flex-basis: 20%;
+  background-color: var(--black_light);
+}
+.sidebar_logo {
+  width: 100%;
+}
+
+.sidebar_logo-img {
+  width: 60%;
+  height: 40px;
+  transform: translate(35%, 20px);
+  border-radius: 5px;
+}
+.sidebar-extended {
+  flex-basis: 80%;
+  padding: 8px;
+}
+
+.content {
+  padding: 12px;
+  background-color: var(--gray);
+  width: 70%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.content-background {
+  padding: 0;
+  height: 300px;
+  background-size: cover;
+  background: linear-gradient(
+      to right bottom,
+      var(--purple_light),
+      var(--purple_dark)
+    ),
+    url(../images/sunny.jpg);
+  border-radius: 5px;
+}
+
+.content-add {
+  z-index: 10;
+  position: fixed;
+  width: 6vh;
+  height: 6vh;
+  right: 33vh;
+  bottom: 15vh;
+
+  border-radius: 100%;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.content-add:hover {
+  transform: translate(-3px, -3px);
+  backface-visibility: hidden;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.add-plus {
+  color: white;
+  height: inherit;
+  width: 100%;
+  background: linear-gradient(
+    to right bottom,
+    var(--purple),
+    var(--purple_dark)
+  );
+}
+
+.checker {
+  width: 20px;
+  height: 20px;
+}
