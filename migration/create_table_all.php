@@ -18,6 +18,8 @@ $statements = [
         due_date datetime NOT NULL,
         task_status VARCHAR(10) NOT NULL,
         category_id INT NOT NULL,
+        created_date datetime NOT NULL,
+        updated_date datetime NULL,
         PRIMARY KEY(id), 
         FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE 
     );',
