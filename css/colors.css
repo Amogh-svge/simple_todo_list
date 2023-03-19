@@ -6,12 +6,15 @@
   --secondary: orange;
   --tertiary: orangered;
 
+  --danger_light: #ec606e;
+
   --black: rgba(10, 10, 10, 0.966);
   --black_light: rgba(46, 46, 46, 0.932);
 
   --gray_light: rgb(224, 222, 222);
   --gray_light2: rgb(230, 227, 227);
   --gray: rgba(255, 254, 254, 0.568);
+  --gray_dark: #757575;
 
   --purple_light: rgba(111, 138, 213, 0.7);
   --purple: rgba(83, 61, 161, 0.7);

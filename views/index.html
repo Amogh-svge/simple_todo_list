@@ -41,7 +41,7 @@
                 Eveniet, a.
               </p>
             </div>
-            <div class="accordion">
+            <div class="accordion" id="">
               <div class="accordion_title">
                 Category <i class="fa-solid fa-caret-down"></i>
               </div>
@@ -120,13 +120,93 @@
             </div>
           </div>
           <span class="content-add">
-            <button class="btn add-plus">
+            <button class="btn add-plus" id="addTaskBtn">
               <ion-icon size="large" color="white" name="add"></ion-icon>
             </button>
           </span>
+
+          <div id="modal" class="modal">
+            <span id="closeModal" class="close" title="Close Modal">×</span>
+            <form class="modal-content">
+              <div class="modal_container">
+                <div class="form-group">
+                  <label class="form-label" for="task-title">Task Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="task-title"
+                    placeholder="Enter task title"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="due-date">Due Date</label>
+                  <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="due-date"
+                  />
+                </div>
+
+                <div class="form-group" id="description_form">
+                  <label class="form-label" for="description"
+                    >Description</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="editor"
+                    rows="3"
+                    placeholder="Enter task description"
+                  ></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="category">Category</label>
+                  <select class="form-control" id="category">
+                    <option>Personal</option>
+                    <option>Work</option>
+                    <option>Shopping</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="status">Task Status</label
+                  ><br />
+                  <div class="radio-group">
+                    <div class="radio-option">
+                      <input
+                        type="radio"
+                        name="status"
+                        id="status2"
+                        value="in-progress"
+                      />
+                      <label for="status2">In Progress</label>
+                    </div>
+                    <div class="radio-option">
+                      <input
+                        type="radio"
+                        name="status"
+                        id="status3"
+                        value="done"
+                      />
+                      <label for="status3">Done</label>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="submit-button">
+                  Add Task <ion-icon name="send"></ion-icon>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </main>
+    <script src="
+    https://cdn.jsdelivr.net/npm/ckeditor-build-with-simple-upload-provider-strapi-with-image-resize@1.0.7/build/ckeditor.min.js
+    "></script>
     <script
       type="module"
       src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
@@ -135,5 +215,50 @@
       nomodule
       src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
     ></script>
+
+    <script>
+      // Dropdown
+      var dropdown = document.getElementsByClassName("accordion_title");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+      // Dropdown Ends
+
+      var AddTaskButton = document.getElementById("addTaskBtn");
+      var Modal = document.getElementById("modal");
+      var CloseModal = document.getElementById("closeModal");
+
+      AddTaskButton.addEventListener("click", function () {
+        Modal.style.display = "block";
+      });
+
+      CloseModal.addEventListener("click", function () {
+        Modal.style.display = "none";
+      });
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          Modal.style.display = "none";
+        }
+      };
+
+      ClassicEditor.create(document.querySelector("#editor"))
+        .then((editor) => {
+          window.editor = editor;
+        })
+        .catch((error) => {
+          console.error("There was a problem initializing the editor.", error);
+        });
+    </script>
   </body>
 </html>
