@@ -4,7 +4,7 @@
 
 .submit-button {
   width: 50%;
-  background-color: var(--purple_dark);
+  background-color: var(--purple_dark2);
   color: white;
   font-size: 17px;
   padding: 5px;
@@ -14,5 +14,5 @@
 }
 
 .submit-button:hover {
-  /* background-color: ; */
+  background-color: var(--purple_dark);
 }

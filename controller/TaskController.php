@@ -4,7 +4,6 @@
 class TaskController
 {
     public $pdo;
-    // public $task_title, $task_description, $due_date, $task_status, $category_id;
 
     function __construct($pdo)
     {
@@ -20,7 +19,8 @@ class TaskController
         ('$inputs[task_title]','$inputs[task_description]','$converted_date','$inputs[task_status]','$inputs[category_id]','$current_date',null)";
 
         $result = $this->pdo->exec($sql);
-        echo $result ? "Task Added successfully" : "Failed to add Task";
+        if ($result)
+            header("location:index.php");
     }
 
     public function retrieve()
@@ -43,13 +43,25 @@ class TaskController
     }
 
 
-    public function delete()
+    public function delete($id)
     {
+        $sql = "DELETE FROM tasks where id = '$id' ";
+        $deleted = $this->pdo->exec($sql);
+
+        if ($deleted)
+            header("location: {$_SERVER['HTTP_REFERER']}");
+    }
+
+    public function taskListByStatus($status)
+    {
+        $sql = "SELECT * FROM tasks where task_status = '$status'";
+        $tasks = $this->pdo->query($sql);
+        return $tasks->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function taskListByCategory($id)
     {
-        $sql = "SELECT * FROM tasks where id = $id";
+        $sql = "SELECT * FROM tasks where category_id = '$id'";
         $tasks = $this->pdo->query($sql);
         return $tasks->fetchAll(PDO::FETCH_ASSOC);
     }

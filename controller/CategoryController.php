@@ -17,7 +17,7 @@ class CategoryController
         $sql = "INSERT INTO categories (category_name,category_status,created_date) values ('Fun','active','$current_date')";
         $result = $this->pdo->exec($sql);
 
-        echo $result ? "Task Added successfully" : "Failed to add Task";
+        echo $result ? "Category Added successfully" : "Failed to add Category";
     }
 
     public function retrieve()

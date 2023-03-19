@@ -131,6 +131,15 @@
   border-bottom: 1px dashed whitesmoke;
 }
 
+.accordion_item > a {
+  color: white;
+  text-decoration: none;
+}
+
+.accordion_item > a:hover {
+  color: var(--purple_light);
+}
+
 /* Modal */
 
 .modal {
@@ -213,6 +222,10 @@ select:focus {
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.radio-group {
+  transform: translateY(-10px);
 }
 
 .radio-option {

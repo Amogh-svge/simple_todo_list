@@ -1,5 +1,5 @@
 <?php
-require "./app/functions.php";
+
 require "./app/connection.php";
 require "controller/TaskController.php";
 require "controller/CategoryController.php";
@@ -38,6 +38,8 @@ if (isset($_REQUEST['add_task'])) {
     if (count($error) == 0) {
         dd($inputs);
         $task->create($inputs);
+    } else {
+        echo "error found";
     }
 }
 
