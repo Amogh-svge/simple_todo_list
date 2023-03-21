@@ -68,9 +68,7 @@
 </div>
 </div>
 </main>
-<!-- <script src="
-    https://cdn.jsdelivr.net/npm/ckeditor-build-with-simple-upload-provider-strapi-with-image-resize@1.0.7/build/ckeditor.min.js
-    "></script> -->
+
 <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
 <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
 
