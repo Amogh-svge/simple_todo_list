@@ -10,7 +10,7 @@
         <div class="modal_container">
             <div class="form-group">
                 <label class="form-label" for="task-title">Task Title</label>
-                <input type="text" name="task_title" class="form-control" id="task-title" placeholder="Enter task title" />
+                <input type="text" name="task_title" class="form-control" id="task-title" placeholder="Enter task title" required />
                 <?php
                 displayError($error, 'task_title');
                 ?>
@@ -18,7 +18,7 @@
 
             <div class="form-group">
                 <label class="form-label" for="due-date">Due Date</label>
-                <input type="datetime-local" class="form-control" name="due_date" id="due-date" />
+                <input type="datetime-local" class="form-control" name="due_date" id="due-date" arequired />
                 <?php
                 displayError($error, 'due_date');
                 ?>
@@ -49,7 +49,7 @@
                 <label class="form-label" for="status">Task Status</label><br />
                 <div class="radio-group">
                     <div class="radio-option">
-                        <input type="radio" name="task_status" id="status1" checked value="In-progress" />
+                        <input type="radio" name="task_status" id="status1" checked value="In_progress" />
                         <label for="status2">In Progress</label>
                     </div>
                     <div class="radio-option">
@@ -68,9 +68,9 @@
 </div>
 </div>
 </main>
-<script src="
+<!-- <script src="
     https://cdn.jsdelivr.net/npm/ckeditor-build-with-simple-upload-provider-strapi-with-image-resize@1.0.7/build/ckeditor.min.js
-    "></script>
+    "></script> -->
 <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
 <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
 
@@ -92,6 +92,8 @@
     }
     // Dropdown Ends
 
+
+
     // Modal 
     var AddTaskButton = document.getElementById("addTaskBtn");
     var Modal = document.getElementById("modal");
@@ -112,14 +114,29 @@
     };
     // Modal Ends
 
-    // ckeditor
-    ClassicEditor.create(document.querySelector("#editor"))
-        .then((editor) => {
-            window.editor = editor;
-        })
-        .catch((error) => {
-            console.error("There was a problem initializing the editor.", error);
+
+
+
+    //  description modal
+    var TodoItem = document.getElementsByClassName("todo_item");
+    var DescriptionBtn = document.getElementsByClassName("description-btn");
+    var Modal2 = document.getElementsByClassName("todo_description");
+    var i;
+
+    for (i = 0; i < TodoItem.length; i++) {
+        DescriptionBtn[i].addEventListener("click", function() {
+            var descriptionElement = this.parentNode.nextElementSibling
+            descriptionElement.classList.toggle("active");
+            console.log(Modal2[i]);
+            // Modal2[i].style.display = "block";
+            if (descriptionElement.style.display === "none") {
+                descriptionElement.style.display = "block";
+            } else {
+                descriptionElement.style.display = "none";
+            }
         });
+    }
+    // description modal Ends
 </script>
 </body>
 

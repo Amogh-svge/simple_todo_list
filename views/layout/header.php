@@ -7,6 +7,8 @@ $category = new CategoryController($pdo); //connection
 $task = new TaskController($pdo);
 $allcategories = $category->retrieve();
 
+date_default_timezone_set("Asia/Kathmandu");
+
 $error = [];
 if (isset($_REQUEST['add_task'])) {
 
@@ -17,14 +19,17 @@ if (isset($_REQUEST['add_task'])) {
     checkFieldWithEmptyData('category_id') ? $category_id = $_POST['category_id'] : $error['category_id'] = 'Select Category';
 
     $inputs = [
-        'task_title' => $_POST['task_title'],
-        'task_description' => $_POST['task_description'],
+        'task_title' =>  htmlspecialchars(strip_tags($_POST['task_title'])),
+        'task_description' => htmlspecialchars($_POST['task_description']),
         'due_date' => $_POST['due_date'],
         'task_status' => $_POST['task_status'],
         'category_id' => $_POST['category_id'],
     ];
     if (count($error) == 0) {
+        // dd($inputs);
         $task->create($inputs);
+    } else {
+        echo "<div class='text-danger text-center'>Failed To Insert Task</div>";
     }
 }
 ?>
@@ -51,7 +56,9 @@ if (isset($_REQUEST['add_task'])) {
             <div class="sidebar">
                 <div class="sidebar-small">
                     <div class="sidebar_logo">
-                        <img src="../images/cloudy.png" alt="" class="sidebar_logo-img" />
+                        <a href="index.php">
+                            <img src="../images/cloudy.png" alt="" class="sidebar_logo-img" />
+                        </a>
                     </div>
                 </div>
                 <div class="sidebar-extended">
@@ -60,8 +67,13 @@ if (isset($_REQUEST['add_task'])) {
                     </span>
                     <div class="card card-light-black my-1">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Eveniet, a.
+
+                            Add your tasks.<br>
+                            Organize your life.<br>
+                            Achieve more every day.<br>
+                            TodoList for your
+                            work and life.
+                            <br>
                         </p>
                     </div>
                     <div class="accordion" id="">
@@ -82,7 +94,7 @@ if (isset($_REQUEST['add_task'])) {
 
                         <ul class="accordion_items">
                             <li class="accordion_item"><a href="todo_status.php?status=<?= 'Complete' ?>">Completed</a></li>
-                            <li class="accordion_item"><a href="todo_status.php?status=<?= 'In_progress' ?>">In-Progress</a></li>
+
                         </ul>
                     </div>
                 </div>

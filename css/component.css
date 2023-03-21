@@ -93,6 +93,28 @@
   outline: none;
 }
 
+.todo_description {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 10px auto;
+  padding: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+}
+
+.todo_description-status {
+  margin: 0px -13px -12px -12px;
+  /* border-radius: 10px 0px 7px 0px; */
+  padding: 4px 6px;
+  display: flex;
+  text-decoration: none;
+  justify-content: space-between;
+  list-style: none;
+  background-color: var(--purple_light);
+}
+
 /* todo items */
 
 /* accordion */
@@ -159,7 +181,7 @@
   grid-template-columns: repeat(auto-fit, minmax(100px, 2));
   grid-gap: 20px;
   padding: 20px;
-  height: 50vh;
+  min-height: 50vh;
 }
 
 /* Modal Box */

@@ -18,6 +18,10 @@ main {
 .w-70 {
   width: 70%;
 }
+
+.text-center {
+  text-align: center;
+}
 .container {
   width: 70%;
   display: flex;
@@ -68,10 +72,16 @@ main {
   padding: 0;
   height: 300px;
   background-size: cover;
-  background: linear-gradient(
+  /* background: linear-gradient(
       to right bottom,
       var(--purple_light),
       var(--purple_dark)
+    ),
+    url(../images/sunny.jpg); */
+  background: linear-gradient(
+      to right bottom,
+      rgba(118, 155, 255, 0.829),
+      rgba(214, 162, 18, 0.555)
     ),
     url(../images/sunny.jpg);
   border-radius: 5px;
@@ -108,7 +118,6 @@ main {
   );
 }
 
-.checker {
-  width: 20px;
-  height: 20px;
+.checker:hover {
+  color: var(--danger);
 }

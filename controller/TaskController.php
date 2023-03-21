@@ -25,7 +25,7 @@ class TaskController
 
     public function retrieve()
     {
-        $sql = "SELECT * FROM tasks";
+        $sql = "SELECT * FROM tasks where task_status = 'In_progress'";;
         $tasks = $this->pdo->query($sql);
         return $tasks->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -61,8 +61,17 @@ class TaskController
 
     public function taskListByCategory($id)
     {
-        $sql = "SELECT * FROM tasks where category_id = '$id'";
+        $sql = "SELECT * FROM tasks where (category_id = '$id' AND task_status = 'In_progress' )";
         $tasks = $this->pdo->query($sql);
         return $tasks->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function isComplete($id)
+    {
+        $sql = "UPDATE tasks SET task_status = 'Complete' WHERE id='$id'";
+        // dd($sql);
+        $result = $this->pdo->exec($sql);
+        if ($result)
+            header("location: {$_SERVER['HTTP_REFERER']}");
     }
 }
