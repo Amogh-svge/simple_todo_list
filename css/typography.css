@@ -9,6 +9,10 @@
   text-align: center;
 }
 
+.text-danger {
+  color: var(--danger);
+}
+
 body {
   font-family: "Lato", Sans-serif;
   font-size: 16px;
@@ -17,6 +21,17 @@ body {
 
 .icon-size {
   font-size: 1.5rem;
+}
+
+.heading-main {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #fff;
+  display: block;
+  font-size: 3.3rem;
+  font-weight: 800;
+  letter-spacing: 15px;
+  padding: 10px;
 }
 
 .heading-primary {
@@ -30,29 +45,6 @@ body {
   font-size: 4rem;
   font-weight: 800;
   letter-spacing: 15px;
-}
-.heading-primary--sub {
-  display: block;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: 13px;
-}
-
-.heading-secondary {
-  font-size: 2rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  display: inline-block;
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: 3px;
-  transition: all 0.2s;
-}
-.heading-secondary:hover {
-  transform: skewY(2deg) skewX(13deg) scale(1.1);
-  text-shadow: 1rem 1rem 2rem rgba(14, 13, 13, 0.7);
 }
 
 .heading-tertiary {

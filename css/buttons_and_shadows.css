@@ -1,3 +1,22 @@
 .btn {
   cursor: pointer;
 }
+
+.submit-button {
+  width: 60%;
+  background-color: var(--purple_dark2);
+  color: white;
+  font-size: 17px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.submit-button:hover {
+  background-color: var(--purple_dark);
+}
+
+.icon-success {
+  color: var(--success);
+}
