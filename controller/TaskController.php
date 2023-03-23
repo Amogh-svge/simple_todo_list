@@ -48,8 +48,8 @@ class TaskController
         $sql = "DELETE FROM tasks where id = '$id' ";
         $deleted = $this->pdo->exec($sql);
 
-        if ($deleted)
-            header("location: {$_SERVER['HTTP_REFERER']}");
+        // if ($deleted)
+        //     header("location: {$_SERVER['HTTP_REFERER']}");
     }
 
     public function taskListByStatus($status)

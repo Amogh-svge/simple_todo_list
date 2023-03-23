@@ -1,5 +1,7 @@
 :root {
   --success: #28a745;
+  --success_light: #07ff41de;
+
   --info: #17a2b8;
   --warning: #ffc107;
   --danger: #dc3545;
@@ -17,7 +19,15 @@
   --gray_dark: #757575;
 
   --purple_light: rgba(111, 138, 213, 0.7);
+  --purple_light2: #8468b9d4;
   --purple: rgba(83, 61, 161, 0.7);
   --purple_dark: rgba(70, 40, 180, 0.7);
   --purple_dark2: rgba(68, 27, 218, 0.7);
+}
+
+.bg-danger {
+  background-color: var(--danger);
+}
+.bg-success {
+  background-color: var(--success);
 }

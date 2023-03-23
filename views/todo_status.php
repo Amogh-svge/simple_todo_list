@@ -53,37 +53,41 @@ $AllTasks = $task->taskListByStatus($status);
                 <?php endforeach; ?>
             <?php else : ?>
                 <?php foreach ($AllTasks as $task) : ?>
+                    <div class="todo_item_group" id='row<?= $task['id'] ?>'>
+                        <div class="todo_item card">
+                            <span>
+                                <ion-icon name="checkmark-done-circle-outline" style="color:green" size="large"></ion-icon>
+                            </span>
+                            <p><?= $task['task_title'] ?></p>
 
-                    <div class="todo_item card">
-                        <span>
-                            <ion-icon name="checkmark-done-circle-outline" style="color:green" size="large"></ion-icon>
-                        </span>
-                        <p><?= $task['task_title'] ?></p>
-
-                        <!-- <a href="task_update.php?id=<?= $task['id'] ?>">
+                            <!-- <a href="task_update.php?id=<?= $task['id'] ?>">
                             <ion-icon class="icon-size" name="create-outline"></ion-icon>
                         </a> -->
-                        <a href="#" class="description-btn btn" style=" margin-top: 3px;">
-                            <ion-icon class="icon-size" name="information-circle-outline"></ion-icon>
-                        </a class="btn">
-                        <a href="task_delete.php?id=<?= $task['id'] ?>">
-                            <ion-icon class="icon-size" name="close-outline"></ion-icon>
-                        </a>
-                    </div>
+                            <a href="#" class="description-btn btn" style=" margin-top: 3px;">
+                                <ion-icon class="icon-size" name="information-circle-outline"></ion-icon>
+                            </a class="btn">
+                            <!-- <a href="task_delete.php?id=<?= $task['id'] ?>">
+                                <ion-icon class="icon-size" name="close-outline"></ion-icon>
+                            </a> -->
+                            <a href="#" onclick="deleteData(<?= $task['id'] ?>,'DELETE')">
+                                <ion-icon class="icon-size" name="close-outline"></ion-icon>
+                            </a>
+                        </div>
 
-                    <div class="card todo_description" style="display: none;">
-                        <h3 class="heading-tertiary">
-                            <?= $task['task_title'] ?>
-                        </h3>
-                        <div class="todo_description-body">
-                            <p class="paragraph">
-                                <?= $task['task_description'] ?>
-                            </p>
-                            <ul class="todo_description-status">
-                                <li>Created Date : <?= date('Y-m-d', strtotime($task['created_date'])) ?></li>
-                                <li>Task_Status: <?= $task['task_status'] ?></li>
-                                <li>Due_date : <?= date('Y-m-d', strtotime($task['due_date'])) ?></li>
-                            </ul>
+                        <div class="card todo_description" style="display: none;">
+                            <h3 class="heading-tertiary">
+                                <?= $task['task_title'] ?>
+                            </h3>
+                            <div class="todo_description-body">
+                                <p class="paragraph">
+                                    <?= $task['task_description'] ?>
+                                </p>
+                                <ul class="todo_description-status">
+                                    <li>Created Date : <?= date('Y-m-d', strtotime($task['created_date'])) ?></li>
+                                    <li>Task_Status: <?= $task['task_status'] ?></li>
+                                    <li>Due_date : <?= date('Y-m-d', strtotime($task['due_date'])) ?></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
             <?php

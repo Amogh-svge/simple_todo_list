@@ -13,6 +13,9 @@
   color: var(--danger);
 }
 
+.text-success {
+  color: var(--success);
+}
 body {
   font-family: "Lato", Sans-serif;
   font-size: 16px;

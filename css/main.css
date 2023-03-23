@@ -121,3 +121,12 @@ main {
 .checker:hover {
   color: var(--danger);
 }
+
+#message {
+  padding: 8xpx;
+  width: 80vh;
+  text-align: center;
+  border-radius: 8px;
+  outline: none;
+  color: white;
+}
