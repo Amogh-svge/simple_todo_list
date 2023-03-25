@@ -4,13 +4,24 @@ require "../app/connection.php";
 require "../controller/TaskController.php";
 
 $task = new TaskController($pdo);
-// $id = $_GET['id'];
-// if ($id) $task->delete($id);
-// else
-//     echo "Task deletion failed";
 
 
-if ($_POST['method'] == 'DELETE') {
+
+if ($_REQUEST['action'] == 'task-delete-by-id') {
     $id = $_POST['id'];
-    $task->delete($id);
+
+    $deleted = $task->delete($id);
+    // if ($deleted) {
+    //     echo json_encode([
+    //         'status' => '200',
+    //         'message' => 'Task Successfully Deleted',
+    //     ]);
+    //     exit;
+    // } else {
+    //     echo json_encode([
+    //         'status' => '500',
+    //         'message' => 'Failed To Delete Task',
+    //     ]);
+    //     exit;
+    // }
 }

@@ -72,7 +72,7 @@ date_default_timezone_set("Asia/Kathmandu");
                         </div>
 
                         <ul class="accordion_items">
-                            <li class="accordion_item"><a href="todo_status.php?status=<?= 'Complete' ?>">Completed</a></li>
+                            <li class="accordion_item"><a href="todo_status.php?status=<?= 'Complete' ?>" id="complete_task">Completed</a></li>
 
                         </ul>
                     </div>

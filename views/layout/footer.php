@@ -76,31 +76,61 @@
                 type: 'post',
                 url: 'task_delete.php',
                 data: {
-                    method: method,
+                    action: 'task-delete-by-id',
                     id: id,
                 },
                 success: function(response) {
                     $('#row' + id).remove();
                     $('#message').css({
-                        "background-color": "#8468b9d4",
                         "display": "block"
                     });
+
                     $('#message')
                         .append("<p class='message_text' id='message_text'>Task Successfully Deleted</p>")
                         .hide().fadeIn(setTimeout(() => {
                             $('#message_text').remove();
                             $('#message').hide();
                         }, 1500));
-
                 }
             })
         });
     }
 
 
+    const updateStatus = id => {
+        $(this).preventDefault();
+        $(document).ready(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'task_update.php',
+
+                data: {
+                    action: 'update-task-by-status',
+                    id: id,
+                    task_status: "Complete",
+                },
+                success: function(response) {
+                    $('#row' + id).remove();
+                    $('#message').css({
+                        "display": "block"
+                    });
+
+                    $('#message')
+                        .append("<p class='message_text' id='message_text'>Successfully Completed Task</p>")
+                        .hide().fadeIn(setTimeout(() => {
+                            $('#message_text').remove();
+                            $('#message').hide();
+                        }, 1500));
+
+                },
+                error: function(response) {
+                    alert('An Error has occured while inserting task')
+                }
+            });
+        });
+    }
 
     $(document).ready(function() {
-
         $('#submit_form').on("submit", function(event) {
             event.preventDefault();
             $.ajax({
@@ -119,7 +149,6 @@
                     try {
                         let resp = JSON.parse(response);
                         $('#message').css({
-                            "background-color": "#8468b9d4",
                             "display": "block"
                         });
                         if (resp.status === '500') {
@@ -131,7 +160,6 @@
                                 }, 1500));
                         }
                     } catch (error) {
-                        console.log('error has occured ' + error);
                         $('#message')
                             .append("<p class='message_text' id='message_text'>Task Successfully Added</p>")
                             .hide().fadeIn(setTimeout(() => {

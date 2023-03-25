@@ -49,10 +49,16 @@ main {
   width: 100%;
 }
 
-.sidebar_logo-img {
+/* .sidebar_logo-img {
   width: 60%;
   height: 40px;
   transform: translate(35%, 20px);
+  border-radius: 5px;
+} */
+.sidebar_logo-img {
+  width: 70%;
+  height: 6%;
+  transform: translate(22%, 20px);
   border-radius: 5px;
 }
 .sidebar-extended {
@@ -129,4 +135,5 @@ main {
   border-radius: 8px;
   outline: none;
   color: white;
+  background-color: var(--purple_light2);
 }
